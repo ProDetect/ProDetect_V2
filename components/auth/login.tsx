@@ -13,8 +13,8 @@ export const Login = () => {
   const router = useRouter();
 
   const initialValues: LoginFormType = {
-    email: "admin@acme.com",
-    password: "admin",
+    email: "",
+    password: "",
   };
 
   const handleLogin = useCallback(
@@ -60,8 +60,9 @@ export const Login = () => {
 
             <Button
               onPress={() => handleSubmit()}
-              variant='flat'
-              color='primary'>
+              variant='solid'
+              color='primary'
+              size='lg'>
               Login
             </Button>
           </>

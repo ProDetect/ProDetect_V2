@@ -13,16 +13,22 @@ export const Register = () => {
   const router = useRouter();
 
   const initialValues: RegisterFormType = {
-    name: "Acme",
-    email: "admin@acme.com",
-    password: "admin",
-    confirmPassword: "admin",
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    organisationName: "",
+    industry: "",
+    organisationSize: "",
+    country: "",
+    terms: false,
+    address: "",
+    phoneNumber: ""
   };
 
   const handleRegister = useCallback(
     async (values: RegisterFormType) => {
       // `values` contains name, email & password. You can use provider to register user
-
       await createAuthCookie();
       router.replace("/");
     },
@@ -39,14 +45,14 @@ export const Register = () => {
         onSubmit={handleRegister}>
         {({ values, errors, touched, handleChange, handleSubmit }) => (
           <>
-            <div className='flex flex-col w-1/2 gap-4 mb-4'>
+            <div className='grid grid-cols-2 gap-4 mb-4 w-full'>
               <Input
                 variant='bordered'
-                label='Name'
-                value={values.name}
-                isInvalid={!!errors.name && !!touched.name}
-                errorMessage={errors.name}
-                onChange={handleChange("name")}
+                label='Full Name'
+                value={values.fullName}
+                isInvalid={!!errors.fullName && !!touched.fullName}
+                errorMessage={errors.fullName}
+                onChange={handleChange("fullName")}
               />
               <Input
                 variant='bordered'
@@ -68,21 +74,52 @@ export const Register = () => {
               />
               <Input
                 variant='bordered'
-                label='Confirm password'
+                label='Confirm Password'
                 type='password'
                 value={values.confirmPassword}
-                isInvalid={
-                  !!errors.confirmPassword && !!touched.confirmPassword
-                }
+                isInvalid={!!errors.confirmPassword && !!touched.confirmPassword}
                 errorMessage={errors.confirmPassword}
                 onChange={handleChange("confirmPassword")}
+              />
+              <Input
+                variant='bordered'
+                label='Organisation Name'
+                value={values.organisationName}
+                isInvalid={!!errors.organisationName && !!touched.organisationName}
+                errorMessage={errors.organisationName}
+                onChange={handleChange("organisationName")}
+              />
+              <Input
+                variant='bordered'
+                label='Industry'
+                value={values.industry}
+                isInvalid={!!errors.industry && !!touched.industry}
+                errorMessage={errors.industry}
+                onChange={handleChange("industry")}
+              />
+              <Input
+                variant='bordered'
+                label='Organisation Size'
+                value={values.organisationSize}
+                isInvalid={!!errors.organisationSize && !!touched.organisationSize}
+                errorMessage={errors.organisationSize}
+                onChange={handleChange("organisationSize")}
+              />
+              <Input
+                variant='bordered'
+                label='Country'
+                value={values.country}
+                isInvalid={!!errors.country && !!touched.country}
+                errorMessage={errors.country}
+                onChange={handleChange("country")}
               />
             </div>
 
             <Button
               onPress={() => handleSubmit()}
-              variant='flat'
-              color='primary'>
+              variant='solid'
+              color='primary'
+              size='lg'>
               Register
             </Button>
           </>
@@ -90,7 +127,7 @@ export const Register = () => {
       </Formik>
 
       <div className='font-light text-slate-400 mt-4 text-sm'>
-        Already have an account ?{" "}
+        Already have an account?{" "}
         <Link href='/login' className='font-bold'>
           Login here
         </Link>

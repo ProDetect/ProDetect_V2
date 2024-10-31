@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Content } from "@/components/home/content";
+import { Content } from "@/components/dashboard/content";
 
 const Home: NextPage = () => {
   return <Content />;

@@ -32,14 +32,13 @@ export const AuthLayoutWrapper = ({ children }: Props) => {
           />
         </div>
 
-        <div className='z-10'>
-          <h1 className='font-bold text-[45px]'>NextUI Dashboard Template</h1>
-          <div className='font-light text-slate-400 mt-4'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            possimus voluptate, sapiente assumenda deserunt repellendus,
-            perferendis odit voluptas hic dolores laborum fugit ut? Architecto
-            quo ex quidem vitae quae rem.
-          </div>
+        <div className='z-10 text-center'>
+          <h1 className='font-bold text-[40px]'>Welcome to ProDetect</h1>
+          <Image
+            className='mt-4 w-300 h-300'
+            src='/Login.png'
+            alt='Login'
+          />
         </div>
       </div>
     </div>
