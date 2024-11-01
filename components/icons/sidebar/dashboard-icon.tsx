@@ -1,6 +1,6 @@
 import React from "react";
 
-export const HomeIcon = () => {
+export const DashboardIcon = () => {
   return (
     <svg
       width="24"
