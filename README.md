@@ -1,19 +1,20 @@
-# NextJS and NextUI Dashboard Template Starter
+<<<<<<< HEAD
+# ProDetect Version-2
+This is a fraud detection and prevention system for banks and FinTechs in Africa
+=======
+## ProDetect
+-Is a transaction monitoring tool that reduces false flagging by 60% and detects evolving fraud patterns, enabling banks and FinTechs to reduce operational costs and achieve regulatory compliance.
 
-You can deploy here directly to vercel [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/Siumauricio/nextui-dashboard-template)
+## Team Member
+- Adama Jarju
+- Emmanuel Terwase
+- Jude Ukana
 
 
-V1 Version Stitches https://v1-nextui-dashboard-template.vercel.app/
-V1 Code: https://github.com/Siumauricio/nextui-dashboard-template/tree/v1
+## Contact Us
 
-This is a template for NextJS and NextUI.
-
-[NextJS](https://nextjs.org/)
-[NextUI](https://nextui.org/)
-
-You can see the demo here: https://nextui-dashboard-template.vercel.app/
-For improve this template, you can create a pull request or open an issue here [Issues](https://github.com/Siumauricio/nextui-dashboard-template/issues) or [Pull Request](
-    https://github.com/Siumauricio/nextui-dashboard-template/pulls)
+- Email Us: jarjuadama101@gmail.com
+>>>>>>> dev
 
 ### Dark Mode
 ![Dashboard Dark Mode](./public/dark.png)
@@ -22,13 +23,7 @@ For improve this template, you can create a pull request or open an issue here [
 ![Dashboard Light Mode](./public/light.png)
 
 
-- Dark Mode Support
-- Full Responsive
-- Home Page with Charts
-- Accounts Page
-- More pages coming soon...
 
-```
 ├── components
 │   ├── accounts            # Accounts components
 │   ├── charts              # Charts components
@@ -51,18 +46,13 @@ For improve this template, you can create a pull request or open an issue here [
 └──
 ```
 
-## For Run
-
-Install dependencies
-
+## Install dependencies
 
 ```bash
 npm install
 ```
 
 Start the server
-
-
 
 ```bash
 npm run dev
