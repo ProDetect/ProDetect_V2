@@ -76,9 +76,6 @@ export const RenderCell = ({ user, columnKey }: Props) => {
               color="danger"
               onClick={() => console.log("Delete user", user.id)}
             >
-              <button>
-                <DeleteIcon size={20} fill="#FF0080" />
-              </button>
             </Tooltip>
           </div>
         </div>
