@@ -1,5 +1,4 @@
 import {
-  Link,
   Table,
   TableBody,
   TableCell,
@@ -22,7 +21,7 @@ export const TableWrapper = () => {
               hideHeader={column.uid === "actions"}
               align={column.uid === "actions" ? "center" : "start"}
             >
-              {column.name}
+              {column.uid}
             </TableColumn>
           )}
         </TableHeader>
