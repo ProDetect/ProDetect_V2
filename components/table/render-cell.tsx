@@ -1,85 +1,91 @@
-import { User, Tooltip, Chip } from "@nextui-org/react";
+import { User, Chip, user } from "@nextui-org/react";
 import React from "react";
-import { EditIcon } from "../icons/table/edit-icon";
-import { EyeIcon } from "../icons/table/eye-icon";
-import { users } from "./data";
+import { AlertUser } from "./data";
 
 interface Props {
-  user: (typeof users)[number];
-  columnKey: string | React.Key;
+  user: AlertUser;
+  columnKey: React.Key;
 }
 
-export const RenderCell = ({ user, columnKey }: Props) => {
-  // @ts-ignore
-  const cellValue = user[columnKey];
-  switch (columnKey) {
-    case "name":
+export const RenderCell: React.FC<Props> = ({ user, columnKey }) => {
+  const key = String(columnKey).toLowerCase(); // Convert to lowercase for case-insensitive matching
+  
+  switch (key) {
+    
+    case "time_date":
       return (
-        <User
-          avatarProps={{
-            src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
-          }}
-          name={cellValue}
-        >
-          {user.alertId}
-        </User>
-      );
-    case "role":
-      return (
-        <div>
-          <div>
-            <span>{cellValue}</span>
-          </div>
-          <div>
-            <span>{user.amount}</span>
-          </div>
+        <div className="flex flex-col">
+          <span className="text-sm">{user.time}</span>
+          <span className="text-xs text-gray-500">{user.date}</span>
         </div>
       );
-    case "status":
+
+    case "alertid":
+      return (
+          <span className="text-sm font-medium">{user.alertId}</span>
+      );
+
+    case "amount":
+      return (
+        <div className="flex flex-col">
+          <span className="text-sm font-medium">{user.amount}</span>
+          <span className="text-xs text-gray-500">{user.transactionType}</span>
+        </div>
+      );
+      case "transactionType":
+        return (
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500">{user.transactionType}</span>
+          </div>
+        );
+    case "customerId":
+      return (
+        <div className="flex flex-col">
+          <span className="text-sm">{user.customerId}</span>
+        </div>
+      );
+      case "transactionId":
+      return (
+        <div className="flex flex-col">
+          <span className="text-sm">{user.transactionId}</span>
+        </div>
+      );
+
+    case "riskscore":
       return (
         <Chip
           size="sm"
           variant="flat"
           color={
-            cellValue === "active"
-              ? "success"
-              : cellValue === "paused"
+            parseInt(user.riskScore) >= 60
               ? "danger"
-              : "warning"
+              : parseInt(user.riskScore) <= 59
+              ? "warning"
+              : "success"
           }
         >
-          <span className="capitalize text-xs">{cellValue}</span>
+          <span className="capitalize text-xs">{user.riskScore}</span>
         </Chip>
       );
 
-    case "actions":
+    case "alertstatus":
       return (
-        <div className="flex items-center gap-4 ">
-          <div>
-            <Tooltip content="Details">
-              <button onClick={() => console.log("View user", user.alertId)} aria-label="View user details">
-                <EyeIcon size={20} fill="#979797" />
-              </button>
-            </Tooltip>
-          </div>
-          <div>
-            <Tooltip content="Edit user" color="secondary">
-              <button onClick={() => console.log("Edit user", user.customerId)} aria-label="Edit user">
-                <EditIcon size={20} fill="#979797" />
-              </button>
-            </Tooltip>
-          </div>
-          <div>
-            <Tooltip
-              content="Delete user"
-              color="danger"
-              onClick={() => console.log("Delete user", user.customerId)}
-            >
-            </Tooltip>
-          </div>
-        </div>
+        <Chip
+          size="sm"
+          variant="flat"
+          color={
+            user.alertStatus === "flagged"
+              ? "danger"
+              : user.alertStatus === "pending"
+              ? "warning"
+              : "success"
+          }
+        >
+          <span className="capitalize text-xs">{user.alertStatus}</span>
+        </Chip>
       );
+
     default:
-      return cellValue;
+      return <span className="text-sm">{user[key as keyof AlertUser]}</span>;
   }
 };
