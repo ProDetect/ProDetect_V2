@@ -1,13 +1,12 @@
 import React from "react";
 
-export const AcmeLogo = () => (
+export const ProDetectLogo = () => (
   <svg
     className="bg-background border border-divider rounded-lg w-11 h-9"
     fill="none"
     height="42"
     viewBox="0 0 32 32"
     width="42"
-    xmlns="http://www.w3.org/2000/svg"
   >
     <rect className="fill-background" height="100%" rx="16" width="100%" />
     <path
