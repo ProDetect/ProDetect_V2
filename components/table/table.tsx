@@ -5,6 +5,7 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
+  user,
 } from "@nextui-org/react";
 import React from "react";
 import { AlertUser, columns, users } from "./data";
@@ -34,7 +35,7 @@ export const TableWrapper: React.FC = () => {
         </TableHeader>
         <TableBody items={users}>
           {(item) => (
-            <TableRow key={item.alertStatus}>
+            <TableRow key={users.indexOf(item)}>
               {columns.map((column) => (
                 <TableCell key={column.uid}>
                   <RenderCell 
