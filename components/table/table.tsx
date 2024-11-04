@@ -1,5 +1,4 @@
 import {
-  Link,
   Table,
   TableBody,
   TableCell,
@@ -8,32 +7,42 @@ import {
   TableRow,
 } from "@nextui-org/react";
 import React from "react";
-import { columns, users } from "./data";
+import { AlertUser, columns, users } from "./data";
 import { RenderCell } from "./render-cell";
 
-export const TableWrapper = () => {
+
+export const TableWrapper: React.FC = () => {
+  // Helper function to get column name
+  const getColumnName = (column: typeof columns[0]) => {
+    // Get the first key that isn't 'uid'
+    const nameKey = Object.keys(column).find(key => key !== 'uid');
+    return nameKey ? column[nameKey] : column.uid;
+  };
+
   return (
-    <div className=" w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4">
       <Table aria-label="Example table with custom cells">
         <TableHeader columns={columns}>
           {(column) => (
             <TableColumn
               key={column.uid}
-              hideHeader={column.uid === "actions"}
-              align={column.uid === "actions" ? "center" : "start"}
+              align="start"
             >
-              {column.name}
+              {getColumnName(column)}  {/* This will display 'TIME', 'DATE', etc. */}
             </TableColumn>
           )}
         </TableHeader>
         <TableBody items={users}>
           {(item) => (
-            <TableRow>
-              {(columnKey) => (
-                <TableCell>
-                  {RenderCell({ user: item, columnKey: columnKey })}
+            <TableRow key={item.alertStatus}>
+              {columns.map((column) => (
+                <TableCell key={column.uid}>
+                  <RenderCell 
+                    user={item as AlertUser} 
+                    columnKey={column.uid}
+                  />
                 </TableCell>
-              )}
+              ))}
             </TableRow>
           )}
         </TableBody>

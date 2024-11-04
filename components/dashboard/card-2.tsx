@@ -14,16 +14,13 @@ export const Card2 = () => {
         </div>
         <div className="flex gap-2.5 py-2 items-center">
           <span className="text-default-900 text-xl font-semibold">
-            $12,138
+            138
           </span>
         </div>
         <div className="flex items-center gap-6">
           <div>
             <div>
-              <span className="font-semibold text-success-600 text-xs">
-                {"↓"}
-              </span>
-              <span className="text-white text-xs">- 4.5% Last Month</span>
+              <span className="text-white text-xs">- 4% Last Month</span>
               </div>
           </div>
 

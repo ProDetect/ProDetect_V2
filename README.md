@@ -16,14 +16,6 @@ This is a fraud detection and prevention system for banks and FinTechs in Africa
 - Email Us: jarjuadama101@gmail.com
 >>>>>>> dev
 
-### Dark Mode
-![Dashboard Dark Mode](./public/dark.png)
-
-### Light Mode
-![Dashboard Light Mode](./public/light.png)
-
-
-
 ├── components
 │   ├── accounts            # Accounts components
 │   ├── charts              # Charts components
