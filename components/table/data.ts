@@ -27,6 +27,8 @@ export interface AlertUser {
 }
 
 export const users: AlertUser[] = [
+
+   // Placeholder Data
    {
       time: '11:29',
       date: '2nd June, 2024',
@@ -38,4 +40,27 @@ export const users: AlertUser[] = [
       riskScore: '60',
       alertStatus: 'flagged',
    },
+   {
+      time: '1:20',
+      date: '12th June, 2024',
+      alertId: 'AL0212',
+      customerId: 'CR00067870909',
+      transactionId: 'TR98700056212',
+      transactionType: 'Debit',
+      amount: '$5,900',
+      riskScore: '50',
+      alertStatus: 'flagged',
+   },
+   {
+      time: '10:59',
+      date: '22nd June, 2025',
+      alertId: 'AL020912',
+      customerId: 'CR00078900909',
+      transactionId: 'TR03450056212',
+      transactionType: 'Credit',
+      amount: '$22,00',
+      riskScore: '69',
+      alertStatus: 'flagged',
+   },
 ];
+

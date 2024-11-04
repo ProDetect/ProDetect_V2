@@ -8,10 +8,7 @@ interface Props {
 }
 
 export const RenderCell: React.FC<Props> = ({ user, columnKey }) => {
-  const key = String(columnKey).toLowerCase(); // Convert to lowercase for case-insensitive matching
-  
-  switch (key) {
-    
+  switch (columnKey) {
     case "time_date":
       return (
         <div className="flex flex-col">
@@ -20,38 +17,40 @@ export const RenderCell: React.FC<Props> = ({ user, columnKey }) => {
         </div>
       );
 
-    case "alertid":
+    case "alertId":
       return (
-          <span className="text-sm font-medium">{user.alertId}</span>
+        <span className="text-sm font-medium">{user.alertId}</span>
       );
 
     case "amount":
       return (
         <div className="flex flex-col">
           <span className="text-sm font-medium">{user.amount}</span>
+        </div>
+      );
+
+    case "transactionType":
+      return (
+        <div className="flex flex-col">
           <span className="text-xs text-gray-500">{user.transactionType}</span>
         </div>
       );
-      case "transactionType":
-        return (
-          <div className="flex flex-col">
-            <span className="text-xs text-gray-500">{user.transactionType}</span>
-          </div>
-        );
+
     case "customerId":
       return (
         <div className="flex flex-col">
           <span className="text-sm">{user.customerId}</span>
         </div>
       );
-      case "transactionId":
+
+    case "transactionId":
       return (
         <div className="flex flex-col">
           <span className="text-sm">{user.transactionId}</span>
         </div>
       );
 
-    case "riskscore":
+    case "riskScore":
       return (
         <Chip
           size="sm"
@@ -68,7 +67,7 @@ export const RenderCell: React.FC<Props> = ({ user, columnKey }) => {
         </Chip>
       );
 
-    case "alertstatus":
+    case "alertStatus":
       return (
         <Chip
           size="sm"
@@ -86,6 +85,6 @@ export const RenderCell: React.FC<Props> = ({ user, columnKey }) => {
       );
 
     default:
-      return <span className="text-sm">{user[key as keyof AlertUser]}</span>;
+      return <span className="text-sm">{user[columnKey as keyof AlertUser]}</span>;
   }
 };
