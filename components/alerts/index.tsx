@@ -21,7 +21,7 @@ export const Alerts = () => {
           <Link href={"/alerts"}>
             <span>Alerts</span>
           </Link>
-          <span> / </span>{" "}
+          <span> / </span>{"/transactions"}
         </li>
 
         <li className="flex gap-2">

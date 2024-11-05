@@ -16,37 +16,39 @@ export const NavbarWrapper = ({ children }: Props) => {
     <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
       <Navbar
         isBordered
-        className="w-full"
+        className="w-full shadow-md"
         classNames={{
           wrapper: "w-full max-w-full",
         }}
       >
+        {/* Mobile Burger Menu */}
         <NavbarContent className="md:hidden">
           <BurguerButton />
         </NavbarContent>
-        <NavbarContent className="w-full max-md:hidden">
+
+        {/* Search Bar */}
+        <NavbarContent className="w-full max-md:hidden justify-center">
           <Input
             startContent={<SearchIcon />}
             isClearable
-            className="w-full"
+            className="w-full max-w-lg shadow-lg rounded focus-within:bg-white focus-within:ring-2 focus-within:ring-blue-500 transition"
             classNames={{
-              input: "w-full",
+              input: "w-full px-4 py-2",
               mainWrapper: "w-full",
             }}
             placeholder="Search..."
+            aria-label="Search"
           />
         </NavbarContent>
+
+        {/* Right Side Icons and User Dropdown */}
         <NavbarContent
           justify="end"
-          className="w-fit data-[justify=end]:flex-grow-0"
+          className="w-fit data-[justify=end]:flex-grow-0 gap-4"
         >
           <NotificationsDropdown />
-          <div className="max-md:hidden">
-            <SupportIcon />
-          </div>
-          <NavbarContent>
-            <UserDropdown />
-          </NavbarContent>
+
+          <UserDropdown />
         </NavbarContent>
       </Navbar>
       {children}

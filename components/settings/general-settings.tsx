@@ -87,7 +87,6 @@ const Settings = () => {
                                                         placeholder="Enter your name"
                                                     />
                                                 </div>
-
                                                 <div className="space-y-2">
                                                     <label className="font-medium">Email</label>
                                                     <Input
