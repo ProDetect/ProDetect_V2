@@ -12,14 +12,14 @@ import { SettingsIcon } from "@/components/icons/sidebar/settings-icon";
 import { TableWrapper } from "@/components/table/table";
 import { AddUser } from "./add-user";
 
-export const Accounts = () => {
+export const Alerts = () => {
   return (
     <div className="my-10 px-4 lg:px-6 max-w-[95rem] mx-auto w-full flex flex-col gap-4">
       <ul className="flex">
         <li className="flex gap-2">
           <HouseIcon />
-          <Link href={"/"}>
-            <span>Home</span>
+          <Link href={"/alerts"}>
+            <span>Alerts</span>
           </Link>
           <span> / </span>{" "}
         </li>
