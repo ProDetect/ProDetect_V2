@@ -1,20 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import { useTheme as useNextTheme } from "next-themes";
 import Image from 'next/image';
 
-interface Company {
-}
-
 export const CompanySidebarLogo = () => {
-  const [company] = useState<Company>({
-  });
+  const { resolvedTheme } = useNextTheme();
+
   return (
     <Image
       className='mt-0.5 w-50 h-25'
-      src='/dashboard-logo.png'
+      src={resolvedTheme === "dark" ? '/dashboard-logo.png' : '/logo.png'}
       alt='prodetect_logo'
       width={200}
       height={100}
     />
   );
-}
+};

@@ -20,7 +20,7 @@ export const Card2 = () => {
         <div className="flex items-center gap-6">
           <div>
             <div>
-              <span className="text-white text-xs">- 4% Last Month</span>
+              <span className="text-default-900 text-xs">- 4% Last Month</span>
               </div>
           </div>
 
