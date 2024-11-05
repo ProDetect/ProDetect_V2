@@ -1,8 +1,8 @@
 import React from "react";
-import { Accounts } from "@/components/accounts";
+import {  Alerts } from "@/components/alerts";
 
-const accounts = () => {
-  return <Accounts />;
+const alerts = () => {
+  return <Alerts />;
 };
 
-export default accounts;
+export default alerts;
