@@ -8,7 +8,7 @@ export const CompanySidebarLogo = () => {
 
   return (
     <Image
-      className='mt-0.5 w-50 h-25'
+      className='mt-0.3 w-45 h-23'
       src={resolvedTheme === "dark" ? '/dashboard-logo.png' : '/logo.png'}
       alt='prodetect_logo'
       width={200}

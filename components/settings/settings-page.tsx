@@ -10,6 +10,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import Rules from './rules/rule-managment';
 
 const Settings = () => {
     const [settings, setSettings] = useState({
@@ -77,7 +78,6 @@ const Settings = () => {
                                             <p className="text-gray-600 mb-6">
                                                 Manage your account settings and preferences.
                                             </p>
-
                                             <div className="space-y-4 h-full">
                                                 <div className="space-y-2">
                                                     <label className="font-medium">Name</label>
@@ -138,12 +138,9 @@ const Settings = () => {
                             </TabsContent>
 
                             <TabsContent value="rules">
-                                <Card className="h-full">
-                                    <CardContent className="pt-6 h-full">
-                                        <h2 className="text-xl font-semibold">Rules Management</h2>
-                                        <p className="text-gray-600">Configure system rules and policies.</p>
-                                    </CardContent>
-                                </Card>
+                            <h2 className="text-xl font-semibold">Rules Management</h2>
+                            <p className="text-gray-600">Manage AML and other fraud rules.</p>
+                                <Rules/>
                             </TabsContent>
                         </div>
                     </Tabs>

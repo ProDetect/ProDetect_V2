@@ -2,7 +2,7 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { TableWrapper } from "../table/table";
+import { TableWrapper } from "../alerts-table/table";
 import { Card1 } from "./card-1";
 import { Card2 } from "./card-2";
 import { Card3 } from "./card-3";
