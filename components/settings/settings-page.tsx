@@ -11,6 +11,7 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import Rules from './rules/rule-managment';
+import GeneralSettings from './general-settings/general-settings';
 
 const Settings = () => {
     const [settings, setSettings] = useState({
@@ -71,52 +72,8 @@ const Settings = () => {
 
                         <div className="flex-grow overflow-y-auto">
                             <TabsContent value="general">
-                                <Card className="h-full">
-                                    <CardContent className="pt-6 h-full">
-                                        <div className="space-y-6 h-full">
-                                            <h2 className="text-xl font-semibold mb-2">General Settings</h2>
-                                            <p className="text-gray-600 mb-6">
-                                                Manage your account settings and preferences.
-                                            </p>
-                                            <div className="space-y-4 h-full">
-                                                <div className="space-y-2">
-                                                    <label className="font-medium">Name</label>
-                                                    <Input
-                                                        value={settings.name}
-                                                        onChange={(e) => updateSetting('name', e.target.value)}
-                                                        placeholder="Enter your name"
-                                                    />
-                                                </div>
-                                                <div className="space-y-2">
-                                                    <label className="font-medium">Email</label>
-                                                    <Input
-                                                        value={settings.email}
-                                                        onChange={(e) => updateSetting('email', e.target.value)}
-                                                        placeholder="Enter your email"
-                                                        type="email"
-                                                    />
-                                                </div>
-
-                                                <div className="space-y-2">
-                                                    <label className="font-medium">Language</label>
-                                                    <Select
-                                                        value={settings.language}
-                                                        onValueChange={(value) => updateSetting('language', value)}
-                                                    >
-                                                        <SelectTrigger>
-                                                            <SelectValue placeholder="Select language" />
-                                                        </SelectTrigger>
-                                                        <SelectContent>
-                                                            <SelectItem value="English">English</SelectItem>
-                                                            <SelectItem value="Spanish">Spanish</SelectItem>
-                                                            <SelectItem value="French">French</SelectItem>
-                                                        </SelectContent>
-                                                    </Select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                                {/* General settings */}
+                                <GeneralSettings />
                             </TabsContent>
 
                             <TabsContent value="notifications">
@@ -138,9 +95,9 @@ const Settings = () => {
                             </TabsContent>
 
                             <TabsContent value="rules">
-                            <h2 className="text-xl font-semibold">Rules Management</h2>
-                            <p className="text-gray-600">Manage AML and other fraud rules.</p>
-                                <Rules/>
+                                <h2 className="text-xl font-semibold">Rules Management</h2>
+                                <p className="text-gray-600">Manage AML and other fraud rules.</p>
+                                <Rules />
                             </TabsContent>
                         </div>
                     </Tabs>

@@ -1,6 +1,7 @@
 'use client'
 import * as React from "react"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
     Card,
     CardContent,
@@ -66,20 +67,29 @@ export function AddRule() {
                                         </Button>
                                     </div>
                                 </div>
-                                <div className="">
-                                            <Label htmlFor="criteria">Action</Label>
-                                            <Select>
-                                                <SelectTrigger id="action">
-                                                    <SelectValue placeholder="Select Action" />
-                                                </SelectTrigger>
-                                                <SelectContent position="popper">
-                                                    <SelectItem value="sending-country">Sending Country</SelectItem>
-                                                    <SelectItem value="receiving-country">Receiving Country</SelectItem>
-                                                    <SelectItem value="currency">Currency</SelectItem>
-                                                    <SelectItem value="kyc-completeness">KYC Completeness</SelectItem>
-                                                </SelectContent>
-                                            </Select>
-                                        </div>
+                                <div className="flex flex-col gap-2 mt-3">
+                                    <Label htmlFor="criteria">Action</Label>
+                                    <Select>
+                                        <SelectTrigger id="action">
+                                            <SelectValue placeholder="Select Action" />
+                                        </SelectTrigger>
+                                        <SelectContent position="popper">
+                                            <SelectItem value="sending-country">Sending Country</SelectItem>
+                                            <SelectItem value="receiving-country">Receiving Country</SelectItem>
+                                            <SelectItem value="currency">Currency</SelectItem>
+                                            <SelectItem value="kyc-completeness">KYC Completeness</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            <div className="flex items-center space-x-2 mt-4">
+                                <Checkbox id="terms" />
+                                <label
+                                    htmlFor="terms"
+                                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                >
+                                    Activate Rule Immediately
+                                </label>
+                            </div>
                             </form>
                         </CardContent>
                         <CardFooter className="flex justify-between gap-2">
