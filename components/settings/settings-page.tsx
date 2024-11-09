@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import Rules from './rules/rule-managment';
 import GeneralSettings from './general-settings/general-settings';
+import Security from './security/security';
 
 const Settings = () => {
     const [settings, setSettings] = useState({
@@ -40,10 +41,10 @@ const Settings = () => {
     // Handle settings updates
     const updateSetting = async (key: string, value: string | boolean) => {
         try {
-            const response = await fetch('/api/settings', {
+            const response = await fetch('', {
                 method: 'PATCH',
                 headers: {
-                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ [key]: value }),
             });
@@ -90,6 +91,7 @@ const Settings = () => {
                                     <CardContent className="pt-6 h-full">
                                         <h2 className="text-xl font-semibold">Security Settings</h2>
                                         <p className="text-gray-600">Manage your security preferences.</p>
+                                        <Security />
                                     </CardContent>
                                 </Card>
                             </TabsContent>
