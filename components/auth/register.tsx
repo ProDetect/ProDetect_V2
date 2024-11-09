@@ -3,14 +3,18 @@
 import { createAuthCookie } from "@/actions/auth.action";
 import { RegisterSchema } from "@/helpers/schemas";
 import { RegisterFormType } from "@/helpers/types";
-import { Button, Input } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { Formik } from "formik";
+import { Button } from "@/components/ui/button"
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 
 export const Register = () => {
   const router = useRouter();
+
+  const industries = ["Technology", "Insurance", "Finance", "E-Commerce", ];
+const countries = ["United States", "Canada", "United Kingdom", "Australia", "India"];
 
   const initialValues: RegisterFormType = {
     fullName: "",
@@ -116,10 +120,7 @@ export const Register = () => {
             </div>
 
             <Button
-              onPress={() => handleSubmit()}
-              variant='solid'
-              color='primary'
-              size='lg'>
+              onClick={() => handleSubmit()}>
               Register
             </Button>
           </>
