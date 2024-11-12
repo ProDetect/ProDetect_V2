@@ -58,7 +58,7 @@ export const Content = () => (
       <div className="flex flex-wrap justify-between">
         <h3 className="text-center text-xl font-semibold">Latest Alerts</h3>
         <Link
-          href="/accounts"
+          href="/alerts"
           as={NextLink}
           color="primary"
           className="cursor-pointer"

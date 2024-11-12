@@ -3,13 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 import Rules from './rules/rule-managment';
 import GeneralSettings from './general-settings/general-settings';
 import Security from './security/security';
@@ -28,7 +21,7 @@ const Settings = () => {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const response = await fetch('/api/settings');
+                const response = await fetch('//API_ENDPOINT');
                 const data = await response.json();
                 setSettings(data);
             } catch (error) {

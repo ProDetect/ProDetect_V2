@@ -3,14 +3,18 @@
 import { createAuthCookie } from "@/actions/auth.action";
 import { LoginSchema } from "@/helpers/schemas";
 import { LoginFormType } from "@/helpers/types";
-import { Button, Input } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { Formik } from "formik";
+import { Button } from "@/components/ui/button"
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 export const Login = () => {
   const router = useRouter();
+  const [isFocused, setIsFocused] = useState(false);
+
 
   const initialValues: LoginFormType = {
     email: "",
@@ -26,6 +30,10 @@ export const Login = () => {
     },
     [router]
   );
+
+  function setisFocused(arg0: boolean): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <>
@@ -46,6 +54,9 @@ export const Login = () => {
                 isInvalid={!!errors.email && !!touched.email}
                 errorMessage={errors.email}
                 onChange={handleChange("email")}
+                onFocus={() => setisFocused(true)}
+                onBlur={() => setisFocused(true)}
+                placeholder={isFocused ? "" :"Enter Email"}
               />
               <Input
                 variant='bordered'
@@ -55,14 +66,13 @@ export const Login = () => {
                 isInvalid={!!errors.password && !!touched.password}
                 errorMessage={errors.password}
                 onChange={handleChange("password")}
+                onFocus={() => setisFocused(true)}
+                onBlur={() => setisFocused(true)}
+                placeholder={isFocused ? "" : "Enter Password" }
               />
             </div>
 
-            <Button
-              onPress={() => handleSubmit()}
-              variant='solid'
-              color='primary'
-              size='lg'>
+            <Button onClick={() => handleSubmit()}>
               Login
             </Button>
           </>
