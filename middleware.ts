@@ -11,8 +11,6 @@ const PROTECTED_ROUTES = [
   "/customers",
   "/reports",
   "/settings",
-  "/settings/integrations",
-  "/settings/integrations",
 ];
 
 export function middleware(request: NextRequest) {
