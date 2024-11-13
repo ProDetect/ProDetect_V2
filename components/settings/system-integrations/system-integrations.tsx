@@ -30,7 +30,7 @@ const Integrations = () => {
                     </Card>
 
                     {/* API Integration Card with Link */}
-                    <Link href="/settings/api-keys" passHref>
+                    <Link href="/system-integrations/api-keys" >
                         <Card className="flex w-full h-full justify-center cursor-pointer">
                             <CardHeader className="text-center mt-2">
                                 <CardTitle>API Integration</CardTitle>

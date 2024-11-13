@@ -1,4 +1,4 @@
-import ApiKeys from "@/components/settings/system-integrations/api-integrations/api-keys";
+import ApiKeys from "@/components/settings/system-integrations/APIs/api-keys";
 import React from "react";
 
 const apiKeys = () => {
