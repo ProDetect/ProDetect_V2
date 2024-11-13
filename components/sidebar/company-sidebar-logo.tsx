@@ -9,7 +9,7 @@ export const CompanySidebarLogo = () => {
   return (
     <Image
       className='mt-0.3 w-45 h-23'
-      src={resolvedTheme === "dark" ? '/dashboard-logo.png' : '/dashboard-logo.png'}
+      src={resolvedTheme === "dark" ? '/dashboard-logo.png' : '/prodetect_logo.svg'}
       alt='prodetect_logo'
       width={200}
       height={100}

@@ -4,9 +4,9 @@ export const ProDetectLogo = () => (
   <svg
     className="bg-background border border-divider rounded-lg w-11 h-9"
     fill="none"
-    height="42"
+    height="40"
     viewBox="0 0 32 32"
-    width="42"
+    width="40"
   >
     <rect className="fill-background" height="100%" rx="16" width="100%" />
     <path

@@ -3,8 +3,8 @@ import React from "react";
 export const ProDetectIcon = () => {
   return (
     <svg
-      width="42"
-      height="42"
+      width="40"
+      height="40"
       viewBox="0 0 56 56"
       fill="none"
       className="w-11 h-12"
