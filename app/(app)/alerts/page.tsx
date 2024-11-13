@@ -1,8 +1,8 @@
+import Alerts from "@/components/alerts";
 import React from "react";
-import {  Alerts } from "@/components/alerts";
 
 const alerts = () => {
-  return <Alerts />;
+    return <Alerts />;
 };
 
 export default alerts;

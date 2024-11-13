@@ -14,15 +14,14 @@ import { Label } from "@/components/ui/label"
 
 export function Sanctions() {
     return (
-        <Card className="flex flex-col">
+        <Card className="w-auto">
             <CardHeader>
                 <CardTitle>Sanctions Checks</CardTitle>
             </CardHeader>
             <CardContent>
                 <form>
                     <div className="grid w-full items-center gap-4">
-                        <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="name">Search</Label>
+                        <div className="flex flex-col space-y-1.5 mt-6">
                             <Input id="name" placeholder="Search for transactions ID or party name" />
                         </div>
                     </div>

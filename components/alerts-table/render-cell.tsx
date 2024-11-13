@@ -36,10 +36,10 @@ export const RenderCell: React.FC<Props> = ({ user, columnKey }) => {
         </div>
       );
 
-    case "customerId":
+    case "senderId":
       return (
         <div className="flex flex-col">
-          <span className="text-sm">{user.customerId}</span>
+          <span className="text-sm">{user.senderId}</span>
         </div>
       );
 
