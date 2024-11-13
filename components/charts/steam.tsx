@@ -1,88 +1,102 @@
 import React from "react";
 import Chart, { Props } from "react-apexcharts";
 
-const state: Props["series"] = [
+const seriesData: Props["series"] = [
   {
-    name: "Series1",
-    data: [31, 40, 28, 51, 42, 109, 100],
+    name: "Suspicious Transactions",
+    data: [25, 35, 28, 45, 60, 80, 75], // Increased values to represent higher number of suspicious transactions
   },
   {
-    name: "Series2",
-    data: [11, 32, 45, 32, 34, 52, 41],
+    name: "High-Risk Transactions",
+    data: [15, 20, 30, 25, 35, 45, 50], // Increased values to represent higher number of high-risk transactions
+  },
+  {
+    name: "Alerts Generated",
+    data: [18, 40, 35, 55, 70, 90, 85], // Increased values to represent higher number of alerts
   },
 ];
 
-const options: Props["options"] = {
+const chartOptions: Props["options"] = {
   chart: {
     type: "area",
     animations: {
-      easing: "linear",
-      speed: 300,
+      easing: "easeinout",
+      speed: 500,
     },
-    sparkline: {
-      enabled: false,
-    },
-    brush: {
-      enabled: false,
-    },
-    id: "basic-bar",
-    foreColor: "hsl(var(--nextui-default-800))",
-    stacked: true,
+    id: "aml-fraud-monitoring",
+    foreColor: "#f0f0f0", // Light gray color for better readability on a dark background
     toolbar: {
-      show: false,
+      show: true,
     },
+    background: "#333", // Dark background color
   },
-
   xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+    categories: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], // More descriptive labels
     labels: {
-      // show: false,
       style: {
-        colors: "hsl(var(--nextui-default-800))",
+        colors: "#f0f0f0",
       },
     },
     axisBorder: {
-      color: "hsl(var(--nextui-nextui-default-200))",
+      color: "#666",
     },
     axisTicks: {
-      color: "hsl(var(--nextui-nextui-default-200))",
+      color: "#666",
     },
   },
   yaxis: {
     labels: {
       style: {
-        // hsl(var(--nextui-content1-foreground))
-        colors: "hsl(var(--nextui-default-800))",
+        colors: "#f0f0f0",
+      },
+    },
+    title: {
+      text: "Count of Transactions / Alerts",
+      style: {
+        color: "#b0b0b0",
       },
     },
   },
   tooltip: {
-    enabled: false,
+    enabled: true,
+    theme: "dark",
+    x: {
+      show: true,
+    },
+    y: {
+      formatter: (val) => `${val} events`, // Shows event count in tooltip
+    },
   },
   grid: {
-    show: true,
-    borderColor: "hsl(var(--nextui-default-200))",
-    strokeDashArray: 0,
-    position: "back",
+    borderColor: "#666",
+    strokeDashArray: 5, // Dashed grid lines for better readability
   },
   stroke: {
     curve: "smooth",
-    fill: {
-      colors: ["red"],
+    width: 2,
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      shadeIntensity: 1,
+      opacityFrom: 0.3,
+      opacityTo: 0.7,
+      stops: [0, 90, 100],
     },
   },
-  // @ts-ignore
-  markers: false,
+  markers: {
+    size: 5,
+    colors: ["#FFA500", "#FF6347", "#1E90FF"], // Distinct colors for each data point
+  },
+  colors: ["#FFA500", "#FF6347", "#1E90FF"], // Orange, red, and blue for differentiation
 };
 
 export const Steam = () => {
   return (
-    <>
-      <div className="w-full z-20">
-        <div id="chart">
-          <Chart options={options} series={state} type="area" height={425} />
-        </div>
+    <div className="w-full z-20 bg-gray-800 p-4">
+      <div id="chart">
+        <Chart options={chartOptions} series={seriesData} type="area" height={425} />
       </div>
-    </>
+    </div>
   );
 };

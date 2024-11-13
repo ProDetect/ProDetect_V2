@@ -36,7 +36,7 @@ const ApiKeys = () => {
         <div className="container mx-auto p-6 max-w-4xl">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold">API Keys</h1>
-                <Button variant="default" onClick={() => window.open('/docs', '_blank')}>
+                <Button variant="default" onClick={() => window.open('/system-integrations/api-documentation', '_blank')}>
                     View Documentation
                 </Button>
             </div>
@@ -46,7 +46,7 @@ const ApiKeys = () => {
                     <div className="flex items-center justify-between">
                         <CardTitle>Environment Settings</CardTitle>
                         <div className="flex items-center space-x-2">
-                            <label htmlFor="test-mode" className="text-sm">
+                            <label htmlFor="live-mode" className="text-sm">
                                 Live Mode
                             </label>
                             <Switch

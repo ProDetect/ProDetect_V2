@@ -13,7 +13,7 @@ export const Card3 = () => {
           </div>
         </div>
         <div className="flex gap-2.5 py-2 items-center">
-          <span className="text-white text-xl font-semibold">910</span>
+          <span className="text-white text-xl font-semibold">126</span>
         </div>
         <div className="flex items-center gap-6">
           <div>
