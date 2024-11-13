@@ -1,11 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Rules from './rules/rule-managment';
 import GeneralSettings from './general-settings/general-settings';
 import Security from './security/security';
+import Integrations from './system-integrations/system-integrations';
 
 const Settings = () => {
     const [settings, setSettings] = useState({
@@ -62,6 +62,7 @@ const Settings = () => {
                             <TabsTrigger value="notifications">Notifications</TabsTrigger>
                             <TabsTrigger value="security">Security</TabsTrigger>
                             <TabsTrigger value="rules">Rules Management</TabsTrigger>
+                            <TabsTrigger value="system-integration">System Integration</TabsTrigger>
                         </TabsList>
 
                         <div className="flex-grow overflow-y-auto">
@@ -94,11 +95,17 @@ const Settings = () => {
                                 <p className="text-gray-600">Manage AML and other fraud rules.</p>
                                 <Rules />
                             </TabsContent>
-                        </div>
-                    </Tabs>
+
+                            <TabsContent value="system-integration">
+                                <h2 className="text-xl font-semibold">System Integration</h2>
+                                <p className="text-gray-600">Manage all system integrations</p>
+                            <Integrations />
+                        </TabsContent>
                 </div>
-            </div>
+            </Tabs>
         </div>
+            </div >
+        </div >
     );
 };
 

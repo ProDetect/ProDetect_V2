@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import * as React from "react";
 import {
     Pagination,
@@ -25,83 +25,89 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { useState, useEffect } from "react";
+import { useState,  } from "react";
 import Link from "next/link";
 
-export function Transactions() {
-    // Placeholder dummy data
+export function Customers() {
     const placeholderData = [
         {
-            transactionCode: "TXN001",
-            sender: "Alice",
-            receiver: "Bob",
+            senderID: "CXN001",
+            receiverID: "CXN001",
+            senderName: "Alice",
+            receiverName: "Bob",
             amount: "$250.00",
             status: "Completed",
         },
         {
-            transactionCode: "TXN002",
-            sender: "Charlie",
-            receiver: "Diana",
+            senderID: "CXN002",
+            receiverID: "CXN002",
+            senderName: "Charlie",
+            receiverName: "Diana",
             amount: "$150.00",
             status: "Pending",
         },
         {
-            transactionCode: "TXN003",
-            sender: "Edward",
-            receiver: "Fiona",
-            amount: "$350.00",
-            status: "Failed",
+            senderID: "CXN003",
+            receiverID: "CXN003",
+            senderName: "Malin",
+            receiverName: "Tana",
+            amount: "$1500.00",
+            status: "Pending",
         },
         {
-            transactionCode: "TXN004",
-            sender: "George",
-            receiver: "Hannah",
-            amount: "$450.00",
-            status: "Completed",
-        },
-        {
-            transactionCode: "TXN005",
-            sender: "Ivy",
-            receiver: "Jack",
+            senderID: "CXN004",
+            receiverID: "CXN004",
+            senderName: "Charles",
+            receiverName: "Fatou",
             amount: "$550.00",
-            status: "Completed",
+            status: "Pending",
+        },
+        {
+            senderID: "CXN005",
+            receiverID: "CXN005",
+            senderName: "Sam",
+            receiverName: "Awa",
+            amount: "$1000.00",
+            status: "Pending",
         },
     ];
 
-    const [transactions, setTransactions] = useState(placeholderData); // Start with placeholder data
+    const [customer, setCustomer] = useState(placeholderData); // Starting with placeholder data
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
 
-    // Fetch transactions from the API
+    // Uncomment the following lines and set API endpoint to enable API fetching
     // useEffect(() => {
-    //     const fetchTransactions = async () => {
+    //     const fetchCustomers = async () => {
     //         setLoading(true);
     //         setError(null);
     //         try {
-    //             const response = await fetch(``);
+    //             const response = await fetch(`API_ENDPOINT?page=${page}`);
     //             if (!response.ok) throw new Error("Network response was not ok.");
     //             const data = await response.json();
-    //             setTransactions(data.transactions || placeholderData); // Replace with API data
+    //             setCustomer(data.customers || []);
     //         } catch (err) {
-    //             console.error("Error fetching transactions:", err);
+    //             setError("Error fetching customers");
+    //             console.error("Error fetching customers:", err);
     //         } finally {
     //             setLoading(false);
     //         }
     //     };
-    //     fetchTransactions();
-    // }, [page, placeholderData]);
+    //     fetchCustomers();
+    // }, [page]);
 
     return (
-        <Card className="w-full">
+        <Card className="w-auto">
             <CardHeader>
                 <div className="flex items-center justify-between">
-                    <CardTitle>Recent Transactions</CardTitle>
+                    <CardTitle>All Customers</CardTitle>
                     <Link href="/export" passHref>
                         <Button variant="default">Export CSV</Button>
                     </Link>
                 </div>
             </CardHeader>
+
             {loading ? (
                 <div className="p-4">Loading...</div>
             ) : error ? (
@@ -110,22 +116,24 @@ export function Transactions() {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>Transaction Code</TableHead>
-                            <TableHead>Sender</TableHead>
-                            <TableHead>Receiver</TableHead>
+                            <TableHead>Sender ID</TableHead>
+                            <TableHead>Receiver ID</TableHead>
+                            <TableHead>Sender Name</TableHead>
+                            <TableHead>Receiver Name</TableHead>
                             <TableHead className="text-center">Amount</TableHead>
                             <TableHead>Status</TableHead>
                             <TableHead>Action</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {transactions.map((transaction) => (
-                            <TableRow key={transaction.transactionCode}>
-                                <TableCell className="font-medium">{transaction.transactionCode}</TableCell>
-                                <TableCell>{transaction.sender}</TableCell>
-                                <TableCell>{transaction.receiver}</TableCell>
-                                <TableCell className="text-center">{transaction.amount}</TableCell>
-                                <TableCell>{transaction.status}</TableCell>
+                        {customer.map((customer) => (
+                            <TableRow key={customer.senderID}>
+                                <TableCell className="font-medium">{customer.senderID}</TableCell>
+                                <TableCell className="font-medium">{customer.receiverID}</TableCell>
+                                <TableCell>{customer.senderName}</TableCell>
+                                <TableCell>{customer.receiverName}</TableCell>
+                                <TableCell className="text-center">{customer.amount}</TableCell>
+                                <TableCell>{customer.status}</TableCell>
                                 <TableCell>
                                     <button className="text-blue-500 hover:underline">View</button>
                                 </TableCell>
@@ -157,4 +165,4 @@ export function Transactions() {
     );
 }
 
-export default Transactions;
+export default Customers;
